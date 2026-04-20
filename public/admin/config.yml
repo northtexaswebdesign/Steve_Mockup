@@ -1,0 +1,25 @@
+backend:
+  name: git-gateway
+  branch: main
+local_backend: true
+media_folder: "public/images"
+public_folder: "/images"
+collections:
+  - name: "pages"
+    label: "Pages"
+    folder: "content/pages"
+    create: true
+    format: "json"
+    identifier_field: "title"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "URL Path", name: "path", widget: "string", hint: "e.g., / or /about"}
+      - label: "Page Sections"
+        name: "sections"
+        widget: "list"
+        types:
+          - label: "Custom HTML Block"
+            name: "custom_html"
+            widget: "object"
+            fields:
+              - {label: "HTML Content", name: "html", widget: "text"}
